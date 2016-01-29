@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+	public LevelManager levelManager;
+
     public float speed = 1.0f;
     public float jumpSpeed = 50.0f;
 
@@ -99,5 +101,6 @@ public class Move : MonoBehaviour
             this.audioSource.Stop();
         }
         this.audioSource.PlayOneShot(fall);
+		levelManager.LoadLevel("End");
     }
 }
