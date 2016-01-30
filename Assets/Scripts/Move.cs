@@ -101,6 +101,12 @@ public class Move : MonoBehaviour
             this.audioSource.Stop();
         }
         this.audioSource.PlayOneShot(fall);
-		levelManager.LoadLevel("End");
+        Destroy(other.gameObject);
+        Invoke("EndScreen", fall.length);
+    }
+
+    void EndScreen()
+    {
+        levelManager.LoadLevel("End");
     }
 }
