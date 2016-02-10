@@ -50,6 +50,10 @@ public class AI : MonoBehaviour
                 baseSpeed = 0.20f;
             }
         }
+        else
+        {
+            baseSpeed = 0.20f;
+        }
     }
 
     void RetardPatrol()
