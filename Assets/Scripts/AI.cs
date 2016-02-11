@@ -32,12 +32,26 @@ public class AI : MonoBehaviour
 
     void LOS()
     {
-        Vector2 rayOrig = new Vector2(transform.position.x + (0.2f * direction.x), transform.position.y);
-        RaycastHit2D hit = Physics2D.Raycast(rayOrig, direction);
+        Vector2 rayEnemyOrig = new Vector2(transform.position.x + (0.2f * direction.x), transform.position.y);
+        RaycastHit2D hitEnemy = Physics2D.Raycast(rayEnemyOrig, direction);
 
-        if (hit.collider != null)
+        Vector2 rayFallOrig = new Vector2(transform.position.x + (0.2f * direction.x), transform.position.y);
+        RaycastHit2D hitFall = Physics2D.Raycast(rayFallOrig, Vector2.down);
+
+        //Vector3 r = new Vector3(transform.position.x + (0.1f * direction.x), transform.position.y, transform.position.z);
+        //Debug.DrawLine(r, hitFall.point, Color.cyan);
+
+        if (hitFall.collider != null)
         {
-            if (hit.collider.gameObject.name == "knightSprite_1")
+            if (hitFall.collider.gameObject.name == "void")
+            {
+                ChangePatrolDirection();
+            }
+        }   
+
+        if (hitEnemy.collider != null)
+        {
+            if (hitEnemy.collider.gameObject.name == "knightSprite_1")
             {
                 if (!audioSource.isPlaying)
                 {
@@ -89,7 +103,10 @@ public class AI : MonoBehaviour
 
     public void ChangePatrolDirection()
     {
-        this.direction = Vector2.right;
+        if (this.direction == Vector2.left)
+            this.direction = Vector2.right;
+        else if (this.direction == Vector2.right)
+            this.direction = Vector2.left;
     }
    
 }
