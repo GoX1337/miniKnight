@@ -80,13 +80,13 @@ public class PlayerHealth : MonoBehaviour
 		isDead = true;
 
 		// Tell the animator that the player is dead.
-		anim.SetTrigger ("Died");
+//		anim.SetTrigger ("Die");
 
 		// Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
 		playerAudio.clip = deathClip;
 		playerAudio.Play ();
 
 		// Turn off the movement and shooting scripts.
-		playerMovement.enabled = false;
+//		playerMovement.enabled = false;
 	}       
 }
