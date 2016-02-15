@@ -8,7 +8,8 @@ public class Move : MonoBehaviour
     public float speed = 1.0f;
     public float jumpSpeed = 50.0f;
 
-    private bool grounded = true;
+    public bool grounded = true;
+    private bool stuckOnWall;
     private Animator playerAnimator;
     private Rigidbody2D rigidBody;
     private AudioSource audioSource;
@@ -75,34 +76,39 @@ public class Move : MonoBehaviour
             }
         }
 
-        this.rigidBody.velocity = new Vector2(mSpeed * speed, this.rigidBody.velocity.y);
-
-    }
-
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        this.grounded = true;
-    }
-
-    void OnCollisionStay2D(Collision2D coll)
-    {
-        this.grounded = true;
-    }
-
-    void OnCollisionExit2D(Collision2D coll)
-    {
-        this.grounded = false;
+        if (this.grounded || !this.stuckOnWall)
+        {
+            this.rigidBody.velocity = new Vector2(mSpeed * speed, this.rigidBody.velocity.y);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!this.audioSource.isPlaying)
+        if (other.name == "void")
         {
-            this.audioSource.Stop();
+            if (!this.audioSource.isPlaying)
+            {
+                this.audioSource.Stop();
+            }
+            this.audioSource.PlayOneShot(fall);
+            Destroy(other.gameObject);
+            Invoke("EndScreen", fall.length);
         }
-        this.audioSource.PlayOneShot(fall);
-        Destroy(other.gameObject);
-        Invoke("EndScreen", fall.length);
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        this.stuckOnWall = coll.gameObject.name == "Walls";
+    }
+
+    void OnCollisionStay2D(Collision2D coll)
+    {
+        this.stuckOnWall = coll.gameObject.name == "Walls";
+    }
+
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        this.stuckOnWall = coll.gameObject.name == "Walls";
     }
 
     void EndScreen()

@@ -20,7 +20,7 @@ public class AI : MonoBehaviour
         audioSource = this.GetComponent<AudioSource>();
         animator = this.GetComponent<Animator>();
         rigidBody = this.GetComponent<Rigidbody2D>();
-        direction = Vector2.left;
+        direction = new Vector2(-this.transform.localScale.x, 0);
     }
 
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class AI : MonoBehaviour
 
         if (hitEnemy.collider != null)
         {
-            if (hitEnemy.collider.gameObject.name == "knightSprite_1")
+            if (hitEnemy.collider.gameObject.name == "Knight")
             {
                 if (!audioSource.isPlaying)
                 {
