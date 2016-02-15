@@ -25,13 +25,10 @@ public class AI : MonoBehaviour
         audioSource = this.GetComponent<AudioSource>();
         animator = this.GetComponent<Animator>();
         rigidBody = this.GetComponent<Rigidbody2D>();
-<<<<<<< HEAD
-        direction = new Vector2(-this.transform.localScale.x, 0);
-=======
+       
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerHealth = GameObject.FindObjectOfType<PlayerHealth> ();
-        direction = Vector2.left;
->>>>>>> origin/master
+        direction = new Vector2(-this.transform.localScale.x, 0);
     }
 
     // Update is called once per frame
@@ -62,11 +59,7 @@ public class AI : MonoBehaviour
 
         if (hitEnemy.collider != null)
         {
-<<<<<<< HEAD
             if (hitEnemy.collider.gameObject.name == "Knight")
-=======
-			if (hitEnemy.collider.gameObject == player)
->>>>>>> origin/master
             {
 				Attack ();
                 if (!audioSource.isPlaying)
