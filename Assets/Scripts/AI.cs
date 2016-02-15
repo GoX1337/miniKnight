@@ -3,7 +3,10 @@ using System.Collections;
 
 public class AI : MonoBehaviour
 {
-    private float speed;
+
+	public int attackDamage = 10;               // The amount of health taken away per attack.
+
+	private float speed;
     private float scaleX = 1.0f;
     private float scaleY = 1.0f;
     private float baseSpeed = 0.20f;
@@ -13,6 +16,8 @@ public class AI : MonoBehaviour
     private bool isMoving;
     private Vector2 direction;
     private float lastX;
+	private PlayerHealth playerHealth;                  // Reference to the player's health.
+	private GameObject player;                          // Reference to the player GameObject.
 
     // Use this for initialization
     void Start()
@@ -20,7 +25,13 @@ public class AI : MonoBehaviour
         audioSource = this.GetComponent<AudioSource>();
         animator = this.GetComponent<Animator>();
         rigidBody = this.GetComponent<Rigidbody2D>();
+<<<<<<< HEAD
         direction = new Vector2(-this.transform.localScale.x, 0);
+=======
+		player = GameObject.FindGameObjectWithTag ("Player");
+		playerHealth = GameObject.FindObjectOfType<PlayerHealth> ();
+        direction = Vector2.left;
+>>>>>>> origin/master
     }
 
     // Update is called once per frame
@@ -28,7 +39,7 @@ public class AI : MonoBehaviour
     {
         LOS();
         RetardPatrol();
-    }
+	}
 
     void LOS()
     {
@@ -51,8 +62,13 @@ public class AI : MonoBehaviour
 
         if (hitEnemy.collider != null)
         {
+<<<<<<< HEAD
             if (hitEnemy.collider.gameObject.name == "Knight")
+=======
+			if (hitEnemy.collider.gameObject == player)
+>>>>>>> origin/master
             {
+				Attack ();
                 if (!audioSource.isPlaying)
                 {
                     audioSource.Play();
@@ -108,5 +124,15 @@ public class AI : MonoBehaviour
         else if (this.direction == Vector2.right)
             this.direction = Vector2.left;
     }
+
+	void Attack ()
+	{
+		// If the player has health to lose...
+		if(playerHealth.currentHealth > 0)
+		{
+			// ... damage the player.
+			playerHealth.TakeDamage (attackDamage);
+		}
+	}
    
 }
