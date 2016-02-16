@@ -124,6 +124,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 195976, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
+      propertyPath: m_Name
+      value: AttackArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164718, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
+      propertyPath: m_Offset.x
+      value: -0.009998083
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164718, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
+      propertyPath: m_Size.x
+      value: 0.27430546
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
   m_IsPrefabParent: 0
@@ -319,6 +331,10 @@ Prefab:
       propertyPath: deathClip
       value: 
       objectReference: {fileID: 8300000, guid: 280f4429a9f3f2c48a7c46d0eb09bacd, type: 3}
+    - target: {fileID: 11420498, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
+      propertyPath: startingHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
   m_IsPrefabParent: 0

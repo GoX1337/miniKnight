@@ -3,27 +3,48 @@ using System.Collections;
 
 public class ColisionDetector : MonoBehaviour {
 
-    void OnCollisionEnter2D(Collision2D coll)
+    private AI ai;
+
+    void Start()
     {
-        if (coll.gameObject.name == "gounddirtcavern_0")
+        ai = this.gameObject.GetComponentInParent<AI>();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "gounddirtcavern_0")
         {
             this.gameObject.GetComponentInParent<AI>().ChangePatrolDirection();
         }
-    }
-
-    void OnCollisionStay2D(Collision2D coll)
-    {
-        if (coll.gameObject.name == "gounddirtcavern_0")
+        else if (other.name == "Knight")
         {
-            this.gameObject.GetComponentInParent<AI>().ChangePatrolDirection();
+            ai.Stop();
+            ai.Attack();
         }
     }
 
-    void OnCollisionExit2D(Collision2D coll)
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (coll.gameObject.name == "gounddirtcavern_0")
+        if (other.name == "gounddirtcavern_0")
         {
             this.gameObject.GetComponentInParent<AI>().ChangePatrolDirection();
+        }
+        else if (other.name == "Knight")
+        {
+            ai.Stop();
+            ai.Attack();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.name == "gounddirtcavern_0")
+        {
+            this.gameObject.GetComponentInParent<AI>().ChangePatrolDirection();
+        }
+        else if (other.name == "Knight")
+        {
+            ai.RestartPatrol();
         }
     }
 }
