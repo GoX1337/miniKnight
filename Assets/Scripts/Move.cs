@@ -23,6 +23,8 @@ public class Move : MonoBehaviour
     public AudioClip jump3;
     private List<AudioClip> listJumpSound;
 
+    private float jumpDelay;
+
 
     // Use this for initialization
     void Start()
@@ -41,15 +43,20 @@ public class Move : MonoBehaviour
     {
         this.rigidBody.WakeUp();
         float mSpeed = Input.GetAxis("Horizontal");
+
+      
         
-        if (Input.GetKey(KeyCode.Space) && this.grounded)
+        if (Input.GetKey(KeyCode.Space) && this.grounded && this.jumpDelay >= 0.4)
         {
-            this.rigidBody.AddForce(Vector2.up * jumpSpeed * 3);
+            this.jumpDelay = 0;
+            this.rigidBody.AddForce(Vector2.up * jumpSpeed * 7);
 
             if (!this.audioSource.isPlaying) { 
                 this.audioSource.PlayOneShot(listJumpSound[Random.Range(0, 3)]);
             }
         }
+        
+        this.jumpDelay += Time.deltaTime;
 
         if (!this.grounded)
         {
