@@ -18,6 +18,8 @@ public class AI : MonoBehaviour
     private float lastX;
 	private PlayerHealth playerHealth;                  // Reference to the player's health.
 	private GameObject player;                          // Reference to the player GameObject.
+    private bool attackModeOn = false;
+    private float lastAttackDelay;
 
     // Use this for initialization
     void Start()
@@ -29,13 +31,15 @@ public class AI : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerHealth = GameObject.FindObjectOfType<PlayerHealth> ();
         direction = new Vector2(-this.transform.localScale.x, 0);
+        lastAttackDelay = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         LOS();
-        RetardPatrol();
+        if(!this.attackModeOn)
+            RetardPatrol();
 	}
 
     void LOS()
@@ -61,7 +65,6 @@ public class AI : MonoBehaviour
         {
             if (hitEnemy.collider.gameObject.name == "Knight")
             {
-				Attack ();
                 if (!audioSource.isPlaying)
                 {
                     audioSource.Play();
@@ -93,20 +96,18 @@ public class AI : MonoBehaviour
         if (speed < 0)
         {
             transform.localScale = new Vector2(scaleX, scaleY);
+            this.animator.Play("walk_skel");
         }
         else if (speed > 0)
         {
             transform.localScale = new Vector2(-scaleX, scaleY);
+            this.animator.Play("walk_skel");
         }
         if (speed == 0)
         {
             this.animator.Play("idle_skel");
         }
-        else
-        {
-            this.animator.Play("walk_skel");
-        }
-
+        
         this.rigidBody.velocity = new Vector2(speed, this.rigidBody.velocity.y);
     }
 
@@ -118,14 +119,29 @@ public class AI : MonoBehaviour
             this.direction = Vector2.left;
     }
 
-	void Attack ()
+	public void Attack ()
 	{
+        this.attackModeOn = true;
+
 		// If the player has health to lose...
-		if(playerHealth.currentHealth > 0)
+        if (playerHealth.currentHealth > 0 && (this.lastAttackDelay == 0 || this.lastAttackDelay >= 0.5))
 		{
 			// ... damage the player.
 			playerHealth.TakeDamage (attackDamage);
+            this.lastAttackDelay = 0;
 		}
+
+        this.lastAttackDelay += Time.deltaTime;
 	}
-   
+
+    public void Stop()
+    {
+        this.speed = 0;
+        this.animator.Play("idle_skel");
+    }
+
+    public void RestartPatrol()
+    {
+        this.attackModeOn = false;
+    }
 }

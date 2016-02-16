@@ -39,6 +39,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.rigidBody.WakeUp();
         float mSpeed = Input.GetAxis("Horizontal");
         
         if (Input.GetKey(KeyCode.Space) && this.grounded)
