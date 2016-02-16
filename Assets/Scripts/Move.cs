@@ -46,7 +46,7 @@ public class Move : MonoBehaviour
 
       
         
-        if (Input.GetKey(KeyCode.Space) && this.grounded && this.jumpDelay >= 0.4)
+        if (Input.GetKey(KeyCode.Space) && this.grounded && this.jumpDelay >= 0.3)
         {
             this.jumpDelay = 0;
             this.rigidBody.AddForce(Vector2.up * jumpSpeed * 7);
