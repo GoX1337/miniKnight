@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 541941251}
+  hud: {fileID: 462831449}
 --- !u!4 &462607179
 Transform:
   m_ObjectHideFlags: 0

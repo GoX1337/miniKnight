@@ -4,6 +4,7 @@ using System.Collections;
 public class UIManager : MonoBehaviour {
 
     public Canvas menu;
+    public Canvas hud;
 
 	// Use this for initialization
 	void Start () {
@@ -18,11 +19,13 @@ public class UIManager : MonoBehaviour {
             {
                 menu.enabled = false;
                 Time.timeScale = 1.0f;
+                hud.enabled = true;
             }
             else
             {
                 menu.enabled = true;
                 Time.timeScale = 0f;
+                hud.enabled = false;
             }
         }
 	}
@@ -31,6 +34,7 @@ public class UIManager : MonoBehaviour {
     {
         Debug.Log("Resume");
         menu.enabled = false;
+        hud.enabled = true;
         Time.timeScale = 1.0f;
     }
 
