@@ -701,7 +701,7 @@ GameObject:
   - 114: {fileID: 2084644629}
   m_Layer: 0
   m_Name: Music Player
-  m_TagString: Untagged
+  m_TagString: MusicSource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -93,7 +93,8 @@ public class UIManager : MonoBehaviour {
 
     public void ChangeMusicVolume(float value)
     {
-        this.musicVolume = value;
+
+        this.musicVolume = value / 100;
         this.musicVolChanged = true;
     }
 
@@ -112,10 +113,15 @@ public class UIManager : MonoBehaviour {
     private void ApplyVolumeChanges(){
         if (this.soundVolChanged)
         {
-            foreach (AudioSource soundSourceObj in GameObject.FindObjectsOfType<AudioSource>())
+            foreach (GameObject soundSourceObj in GameObject.FindGameObjectsWithTag("SoundSource"))
             {
-                soundSourceObj.volume = this.soundEffectsVolume;
+                soundSourceObj.GetComponent<AudioSource>().volume = this.soundEffectsVolume;
             }
+        }
+
+        if (this.musicVolChanged)
+        {
+            GameObject.FindGameObjectWithTag("MusicSource").GetComponent<AudioSource>().volume = this.musicVolume;
         }
     }
 }
