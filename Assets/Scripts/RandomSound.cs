@@ -33,7 +33,7 @@ public class RandomSound : MonoBehaviour {
         Debug.Log("RandomSound>" + this.folderName + ": " + audioClipList.Count + " sounds loaded");
 	}
 
-    void PlayRandomSound()
+    public void PlayRandomSound()
     {
         this.audioSource.PlayOneShot(this.audioClipList[Random.Range(0, audioClipList.Count)]);
     }

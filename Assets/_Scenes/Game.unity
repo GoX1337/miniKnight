@@ -382,6 +382,14 @@ Prefab:
       propertyPath: m_TagString
       value: SoundSource
       objectReference: {fileID: 0}
+    - target: {fileID: 8242360, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447622, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
+      propertyPath: skeletonGrowl
+      value: 
+      objectReference: {fileID: 42865798}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
   m_IsPrefabParent: 0

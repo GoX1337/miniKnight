@@ -10,7 +10,10 @@ public class AI : MonoBehaviour
     private float scaleX = 1.0f;
     private float scaleY = 1.0f;
     private float baseSpeed = 0.20f;
+
     private AudioSource audioSource;
+    public RandomSound skeletonGrowl;
+
     private Rigidbody2D rigidBody;
     private Animator animator;
     private bool isMoving;
@@ -67,7 +70,7 @@ public class AI : MonoBehaviour
             {
                 if (!audioSource.isPlaying)
                 {
-                    audioSource.Play();
+                    skeletonGrowl.PlayRandomSound();
                 }
                 baseSpeed = 0.45f;
             }
