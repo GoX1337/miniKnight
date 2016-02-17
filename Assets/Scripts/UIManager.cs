@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour {
     public Camera camera;
     private GameObject main;
     private GameObject options;
+    public float soundEffectsVolume = 1f;
+    public float musicVolume = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -58,5 +60,20 @@ public class UIManager : MonoBehaviour {
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void ChangeSoundEffectsVolume(float value)
+    {
+        Debug.Log(value);
+    }
+
+    public void ChangeMusicVolume(float value)
+    {
+        Debug.Log(value);
+    }
+
+    public void ChangeFPSDisplay(bool fpsDisplay)
+    {
+        Debug.Log(fpsDisplay);
     }
 }
