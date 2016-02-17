@@ -380,11 +380,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 193078, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: SoundSource
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &42865797 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 193078, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
+  m_PrefabInternal: {fileID: 42865796}
+--- !u!114 &42865798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42865797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe0fa912599272458f9e578a7f5efb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  folderName: zombie
 --- !u!1 &47599991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +1031,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 108246, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: SoundSource
       objectReference: {fileID: 0}
     - target: {fileID: 8256288, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
       propertyPath: spreadCustomCurve.m_RotationOrder
