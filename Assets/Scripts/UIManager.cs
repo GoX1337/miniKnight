@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour {
 
     public Canvas menu;
     public Canvas hud;
+    public Camera camera;
 
 	// Use this for initialization
 	void Start () {
@@ -20,12 +21,14 @@ public class UIManager : MonoBehaviour {
                 menu.enabled = false;
                 Time.timeScale = 1.0f;
                 hud.enabled = true;
+                camera.GetComponentInChildren<FPSDisplay>().showFps = true;
             }
             else
             {
                 menu.enabled = true;
                 Time.timeScale = 0f;
                 hud.enabled = false;
+                camera.GetComponentInChildren<FPSDisplay>().showFps = false;
             }
         }
 	}
@@ -36,6 +39,7 @@ public class UIManager : MonoBehaviour {
         menu.enabled = false;
         hud.enabled = true;
         Time.timeScale = 1.0f;
+        camera.GetComponentInChildren<FPSDisplay>().showFps = true;
     }
 
     public void Options()
