@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour {
     public void Resume()
     {
         Debug.Log("Resume");
+        menu.enabled = false;
+        Time.timeScale = 1.0f;
     }
 
     public void Options()
@@ -40,5 +42,6 @@ public class UIManager : MonoBehaviour {
     public void Quit()
     {
         Debug.Log("Quit");
+        Application.Quit();
     }
 }
