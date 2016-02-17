@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour {
     public Camera camera;
     private GameObject main;
     private GameObject options;
+    private bool inOptionsMenu = false;
     
     private float soundEffectsVolume = 1f;
     private float musicVolume = 1f;
@@ -29,7 +30,16 @@ public class UIManager : MonoBehaviour {
         {
             if (menu.enabled)
             {
-                Resume();
+                if (inOptionsMenu)
+                {
+                    options.SetActive(false);
+                    main.SetActive(true);
+                    inOptionsMenu = false;
+                }
+                else
+                {
+                    Resume();
+                }
             }
             else
             {
@@ -53,14 +63,15 @@ public class UIManager : MonoBehaviour {
         menu.enabled = false;
         hud.enabled = true;
         Time.timeScale = 1.0f;
-        camera.GetComponentInChildren<FPSDisplay>().showFps = fpsDisplay;
         AudioListener.pause = false;
+        camera.GetComponentInChildren<FPSDisplay>().showFps = fpsDisplay;
     }
 
     public void Options()
     {
         options.SetActive(true);
         main.SetActive(false);
+        inOptionsMenu = true;
     }
 
     public void Quit()
@@ -87,5 +98,6 @@ public class UIManager : MonoBehaviour {
     {
         options.SetActive(false);
         main.SetActive(true);
+        inOptionsMenu = false;
     }
 }
