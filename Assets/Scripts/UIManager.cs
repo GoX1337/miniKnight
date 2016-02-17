@@ -121,7 +121,10 @@ public class UIManager : MonoBehaviour {
 
         if (this.musicVolChanged)
         {
-            GameObject.FindGameObjectWithTag("MusicSource").GetComponent<AudioSource>().volume = this.musicVolume;
+            GameObject musicSrc = GameObject.FindGameObjectWithTag("MusicSource");
+            if(musicSrc != null){
+                musicSrc.GetComponent<AudioSource>().volume = this.musicVolume;
+            }
         }
     }
 }
