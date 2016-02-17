@@ -378,6 +378,10 @@ Prefab:
       propertyPath: m_Volume
       value: 0.175
       objectReference: {fileID: 0}
+    - target: {fileID: 193078, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
   m_IsPrefabParent: 0
@@ -1008,6 +1012,14 @@ Prefab:
     - target: {fileID: 11420498, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
       propertyPath: startingHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 108246, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256288, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}

@@ -6,12 +6,17 @@ public class UIManager : MonoBehaviour {
     public Canvas menu;
     public Canvas hud;
     public Camera camera;
+
     private GameObject main;
+
     private GameObject options;
     private bool inOptionsMenu = false;
     
     private float soundEffectsVolume = 1f;
+    private bool soundVolChanged = false;
     private float musicVolume = 1f;
+    private bool musicVolChanged = false;
+
     private bool fpsDisplay = true;
     public UnityEngine.UI.Toggle fpsToogle;
 
@@ -65,6 +70,7 @@ public class UIManager : MonoBehaviour {
         Time.timeScale = 1.0f;
         AudioListener.pause = false;
         camera.GetComponentInChildren<FPSDisplay>().showFps = fpsDisplay;
+        ApplyVolumeChanges();
     }
 
     public void Options()
@@ -82,11 +88,13 @@ public class UIManager : MonoBehaviour {
     public void ChangeSoundEffectsVolume(float value)
     {
         this.soundEffectsVolume = value;
+        this.soundVolChanged = true;
     }
 
     public void ChangeMusicVolume(float value)
     {
         this.musicVolume = value;
+        this.musicVolChanged = true;
     }
 
     public void ChangeFPSDisplay(bool fps)
@@ -99,5 +107,15 @@ public class UIManager : MonoBehaviour {
         options.SetActive(false);
         main.SetActive(true);
         inOptionsMenu = false;
+    }
+
+    private void ApplyVolumeChanges(){
+        if (this.soundVolChanged)
+        {
+            foreach (AudioSource soundSourceObj in GameObject.FindObjectsOfType<AudioSource>())
+            {
+                soundSourceObj.volume = this.soundEffectsVolume;
+            }
+        }
     }
 }
