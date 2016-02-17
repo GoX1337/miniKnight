@@ -8,8 +8,11 @@ public class UIManager : MonoBehaviour {
     public Camera camera;
     private GameObject main;
     private GameObject options;
-    public float soundEffectsVolume = 1f;
-    public float musicVolume = 1f;
+    
+    private float soundEffectsVolume = 1f;
+    private float musicVolume = 1f;
+    private bool fpsDisplay = true;
+    public UnityEngine.UI.Toggle fpsToogle;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +20,7 @@ public class UIManager : MonoBehaviour {
         main = GameObject.Find("MainPanel");
         options = GameObject.Find("OptionsPanel");
         options.SetActive(false);
+        AudioListener.pause = false;
 	}
 	
 	// Update is called once per frame
@@ -25,55 +29,63 @@ public class UIManager : MonoBehaviour {
         {
             if (menu.enabled)
             {
-                menu.enabled = false;
-                Time.timeScale = 1.0f;
-                hud.enabled = true;
-                camera.GetComponentInChildren<FPSDisplay>().showFps = true;
+                Resume();
             }
             else
             {
-                menu.enabled = true;
-                Time.timeScale = 0f;
-                hud.enabled = false;
-                camera.GetComponentInChildren<FPSDisplay>().showFps = false;
+                Menu();
             }
         }
 	}
 
+    public void Menu()
+    {
+        menu.enabled = true;
+        Time.timeScale = 0f;
+        hud.enabled = false;
+        camera.GetComponentInChildren<FPSDisplay>().showFps = false;
+        fpsToogle.isOn = fpsDisplay;
+        AudioListener.pause = true;
+    }
+
     public void Resume()
     {
-        Debug.Log("Resume");
         menu.enabled = false;
         hud.enabled = true;
         Time.timeScale = 1.0f;
-        camera.GetComponentInChildren<FPSDisplay>().showFps = true;
+        camera.GetComponentInChildren<FPSDisplay>().showFps = fpsDisplay;
+        AudioListener.pause = false;
     }
 
     public void Options()
     {
-        Debug.Log("Options");
         options.SetActive(true);
         main.SetActive(false);
     }
 
     public void Quit()
     {
-        Debug.Log("Quit");
         Application.Quit();
     }
 
     public void ChangeSoundEffectsVolume(float value)
     {
-        Debug.Log(value);
+        this.soundEffectsVolume = value;
     }
 
     public void ChangeMusicVolume(float value)
     {
-        Debug.Log(value);
+        this.musicVolume = value;
     }
 
-    public void ChangeFPSDisplay(bool fpsDisplay)
+    public void ChangeFPSDisplay(bool fps)
     {
-        Debug.Log(fpsDisplay);
+        this.fpsDisplay = fps;
+    }
+
+    public void ApplyOptionsAndBack()
+    {
+        options.SetActive(false);
+        main.SetActive(true);
     }
 }
