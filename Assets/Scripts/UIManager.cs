@@ -26,4 +26,19 @@ public class UIManager : MonoBehaviour {
             }
         }
 	}
+
+    public void Resume()
+    {
+        Debug.Log("Resume");
+    }
+
+    public void Options()
+    {
+        Debug.Log("Options");
+    }
+
+    public void Quit()
+    {
+        Debug.Log("Quit");
+    }
 }
