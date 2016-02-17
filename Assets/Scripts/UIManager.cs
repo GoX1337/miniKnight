@@ -6,10 +6,15 @@ public class UIManager : MonoBehaviour {
     public Canvas menu;
     public Canvas hud;
     public Camera camera;
+    private GameObject main;
+    private GameObject options;
 
 	// Use this for initialization
 	void Start () {
         menu.enabled = false;
+        main = GameObject.Find("MainPanel");
+        options = GameObject.Find("OptionsPanel");
+        options.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -45,6 +50,8 @@ public class UIManager : MonoBehaviour {
     public void Options()
     {
         Debug.Log("Options");
+        options.SetActive(true);
+        main.SetActive(false);
     }
 
     public void Quit()
