@@ -8,6 +8,7 @@ public class RandomSound : MonoBehaviour {
     public string folderName;
     private AudioSource audioSource;
     private List<AudioClip> audioClipList = new List<AudioClip>();
+    private float maxLength;
 
 	// Use this for initialization
 	void Start () {
@@ -23,18 +24,26 @@ public class RandomSound : MonoBehaviour {
             if (!f.Name.EndsWith(".meta"))
             {
                 AudioClip clip = Resources.Load("Sound/" + folderName + "/" + f.Name.Substring(0, f.Name.LastIndexOf("."))) as AudioClip;
-
                 if (clip != null)
                 {
                     audioClipList.Add(clip);
+                    if (maxLength < clip.length)
+                    {
+                        maxLength = clip.length;
+                    }
                 }
             }
         }
         Debug.Log("RandomSound>" + this.folderName + ": " + audioClipList.Count + " sounds loaded");
 	}
 
-    public void PlayRandomSound()
+    public AudioClip GetRandomSound()
     {
-        this.audioSource.PlayOneShot(this.audioClipList[Random.Range(0, audioClipList.Count)]);
+        return this.audioClipList[Random.Range(0, audioClipList.Count)];
+    }
+
+    public float GetMaxLength()
+    {
+        return this.maxLength;
     }
 }

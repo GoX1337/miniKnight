@@ -18,10 +18,7 @@ public class Move : MonoBehaviour
     private float scaleY = 1.0f;
 
     public AudioClip fall;
-    public AudioClip jump1;
-    public AudioClip jump2;
-    public AudioClip jump3;
-    private List<AudioClip> listJumpSound;
+    public RandomSound jumpRandomSounds;
 
     private float jumpDelay;
 
@@ -32,10 +29,6 @@ public class Move : MonoBehaviour
         playerAnimator = this.GetComponent<Animator>();
         rigidBody = this.GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
-        listJumpSound = new List<AudioClip>();
-        listJumpSound.Add(jump1);
-        listJumpSound.Add(jump2);
-        listJumpSound.Add(jump3);
     }
 
     // Update is called once per frame
@@ -51,8 +44,8 @@ public class Move : MonoBehaviour
             this.jumpDelay = 0;
             this.rigidBody.AddForce(Vector2.up * jumpSpeed * 7);
 
-            if (!this.audioSource.isPlaying) { 
-                this.audioSource.PlayOneShot(listJumpSound[Random.Range(0, 3)]);
+            if (!this.audioSource.isPlaying) {
+                this.audioSource.PlayOneShot(this.jumpRandomSounds.GetRandomSound());
             }
         }
         
