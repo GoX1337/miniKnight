@@ -37,8 +37,6 @@ public class Move : MonoBehaviour
         this.rigidBody.WakeUp();
         float mSpeed = Input.GetAxis("Horizontal");
 
-      
-        
         if (Input.GetKey(KeyCode.Space) && this.grounded && this.jumpDelay >= 0.3)
         {
             this.jumpDelay = 0;
@@ -51,9 +49,11 @@ public class Move : MonoBehaviour
         
         this.jumpDelay += Time.deltaTime;
 
+        this.playerAnimator.SetBool("grounded", this.grounded);
+
         if (!this.grounded)
         {
-            this.playerAnimator.Play("air");
+            //this.playerAnimator.Play("air");
         }
         else
         {
@@ -67,13 +67,15 @@ public class Move : MonoBehaviour
                 transform.localScale = new Vector2(-scaleX, scaleY);
             }
 
+            this.playerAnimator.SetBool("moving", mSpeed != 0);
+
             if (mSpeed == 0)
             {
-                this.playerAnimator.Play("idle");
+                //this.playerAnimator.Play("idle");
             }
             else
             {
-                this.playerAnimator.Play("walk");
+                //this.playerAnimator.Play("walk");
             }
         }
 

@@ -83,17 +83,16 @@ public class PlayerHealth : MonoBehaviour
 		// Tell the animator that the player is dead.
 //		anim.SetTrigger ("Die");
 
+        AudioClip deathClip = this.dieRandomSounds.GetRandomSound();
+        Debug.Log(deathClip.length);
+
 		// Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-        this.playerAudio.PlayOneShot(this.dieRandomSounds.GetRandomSound());
+        this.playerAudio.PlayOneShot(deathClip);
 
 		// Turn off the movement and shooting scripts.
 //		playerMovement.enabled = false;
 
-        Invoke("EndScreen", this.dieRandomSounds.GetMaxLength());
-	}
 
-    void EndScreen()
-    {
         this.GetComponentInParent<Move>().levelManager.LoadLevel("End");
-    }
+	}
 }
