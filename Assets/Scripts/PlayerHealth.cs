@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
 	Animator anim;                                              // Reference to the Animator component.
 	AudioSource playerAudio;                                    // Reference to the AudioSource component.
 	Move playerMovement;                              			// Reference to the player's movement.
-	bool isDead;                                                // Whether the player is dead.
+	public bool isDead;                                         // Whether the player is dead.
 	bool damaged;                                               // True when the player gets damaged.
 
     public RandomSound painRandomSounds;
@@ -76,6 +76,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
+        isDead = true;
         this.playerAudio.PlayOneShot(this.dieRandomSounds.GetRandomSound());
         this.anim.SetTrigger("dead");
     }

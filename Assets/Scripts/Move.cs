@@ -22,6 +22,7 @@ public class Move : MonoBehaviour
 
     private float jumpDelay;
 
+    private PlayerHealth hp;
 
     // Use this for initialization
     void Start()
@@ -29,11 +30,15 @@ public class Move : MonoBehaviour
         playerAnimator = this.GetComponent<Animator>();
         rigidBody = this.GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        hp = GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (hp.isDead)
+            return;
+
         this.rigidBody.WakeUp();
         float mSpeed = Input.GetAxis("Horizontal");
 
