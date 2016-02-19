@@ -321,11 +321,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 436914, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.309
+      value: -0.236
       objectReference: {fileID: 0}
     - target: {fileID: 436914, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.054
+      value: -0.026
       objectReference: {fileID: 0}
     - target: {fileID: 436914, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2135,3 +2135,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   folderName: die
+--- !u!114 &2116414677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116414673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354dda03a867eb043b6cce1beb10fb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

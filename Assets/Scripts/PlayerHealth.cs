@@ -74,25 +74,15 @@ public class PlayerHealth : MonoBehaviour
 		}
 	}
 
+    void Death()
+    {
+        this.playerAudio.PlayOneShot(this.dieRandomSounds.GetRandomSound());
+        this.anim.SetTrigger("dead");
+    }
 
-	void Death ()
-	{
-		// Set the death flag so this function won't be called again.
-		isDead = true;
-
-		// Tell the animator that the player is dead.
-//		anim.SetTrigger ("Die");
-
-        AudioClip deathClip = this.dieRandomSounds.GetRandomSound();
-        Debug.Log(deathClip.length);
-
-		// Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-        this.playerAudio.PlayOneShot(deathClip);
-
-		// Turn off the movement and shooting scripts.
-//		playerMovement.enabled = false;
-
-
+    public void SwitchEndGameScene()
+    {
+        Debug.Log("end...");
         this.GetComponentInParent<Move>().levelManager.LoadLevel("End");
-	}
+    }
 }
