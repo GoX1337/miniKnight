@@ -15,6 +15,7 @@ public class PlayerHealth : Health
 
     public RandomSound painRandomSounds;
     public RandomSound dieRandomSounds;
+    public Attack attack;
 
 	void Awake ()
 	{
@@ -22,6 +23,7 @@ public class PlayerHealth : Health
 		anim = GetComponent <Animator> ();
 		playerAudio = GetComponent <AudioSource> ();
 		playerMovement = GetComponent <Move> ();
+        attack = GetComponent<Attack>();
 		// Set the initial health of the player.
 		currentHealth = startingHealth;
 	}

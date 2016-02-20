@@ -39,15 +39,20 @@ public class Health : MonoBehaviour {
             Death();
             isDead = true;
         }
+        else
+        {
+            this.animator.SetTrigger("hurt");
+        }
     }
 
     public void Death()
     {
         if (!isDead) 
         { 
+            this.animator.SetTrigger("dead");
             Destroy(ai);
             Destroy(this.transform.Find("AttackArea").gameObject);
-            this.animator.SetTrigger("dead");
+            Destroy(this);
         }
     }
 }
