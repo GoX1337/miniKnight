@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 960523ddbbb093141b977a3700c75151
-timeCreated: 1455924029
+timeCreated: 1455927026
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -406,8 +406,8 @@ TextureImporter:
         y: 310
         width: 21
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.47180828, y: 0.53308296}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: knightSprite_28

@@ -41,6 +41,7 @@ public class Move : MonoBehaviour
 
         this.rigidBody.WakeUp();
         float mSpeed = Input.GetAxis("Horizontal");
+        this.playerAnimator.SetBool("moving", mSpeed != 0);
 
         if (Input.GetKey(KeyCode.Space) && this.grounded && this.jumpDelay >= 0.3)
         {
@@ -53,35 +54,11 @@ public class Move : MonoBehaviour
         }
         
         this.jumpDelay += Time.deltaTime;
-
         this.playerAnimator.SetBool("grounded", this.grounded);
 
-        if (!this.grounded)
+        if (this.grounded && mSpeed != 0)
         {
-            //this.playerAnimator.Play("air");
-        }
-        else
-        {
-
-            if (mSpeed > 0)
-            {
-                transform.localScale = new Vector2(scaleX, scaleY);
-            }
-            else if (mSpeed < 0)
-            {
-                transform.localScale = new Vector2(-scaleX, scaleY);
-            }
-
-            this.playerAnimator.SetBool("moving", mSpeed != 0);
-
-            if (mSpeed == 0)
-            {
-                //this.playerAnimator.Play("idle");
-            }
-            else
-            {
-                //this.playerAnimator.Play("walk");
-            }
+            transform.localScale = new Vector2(mSpeed > 0 ? scaleX : -scaleX, scaleY);
         }
 
         if (this.grounded || !this.stuckOnWall)
