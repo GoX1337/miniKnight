@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - MusicSource
-  - SoundSource
+  - Enemy
+  - Player
+  - Spawner
   layers:
   - Default
   - TransparentFX

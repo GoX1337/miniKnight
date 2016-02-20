@@ -21,7 +21,7 @@ public class SwordHit : MonoBehaviour {
             this.attack.missed = false;
             this.audioSource.PlayOneShot(this.wallHit.GetRandomSound());
         }
-        else if (other.name == "Skeleton")
+        else if (other.name.Contains("Skeleton"))
         {
             this.attack.missed = false;
             this.attack.AttackGameObject(other.gameObject);

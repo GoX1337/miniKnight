@@ -14,9 +14,12 @@ GameObject:
   - 82: {fileID: 8242360}
   - 95: {fileID: 9554344}
   - 212: {fileID: 21291392}
+  - 114: {fileID: 11447352}
+  - 114: {fileID: 11408350}
+  - 114: {fileID: 11483664}
   m_Layer: 0
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +35,7 @@ GameObject:
   - 61: {fileID: 6164718}
   - 114: {fileID: 11400724}
   m_Layer: 0
-  m_Name: ColisionSensor
+  m_Name: AttackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,9 +108,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.0029193163, y: 0.062046766}
+  m_Offset: {x: -0.064103484, y: 0.062046766}
   serializedVersion: 2
-  m_Size: {x: 0.19643858, y: 0.044454813}
+  m_Size: {x: 0.16609468, y: 0.044454813}
 --- !u!82 &8242360
 AudioSource:
   m_ObjectHideFlags: 1
@@ -117,9 +120,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 571048cba62aeb741941fd60279f9be9, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.175
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -210,6 +213,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bee54e93c632e45a973dc2d0c9be29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11408350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe0fa912599272458f9e578a7f5efb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  folderName: hit/living
+--- !u!114 &11447352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe0fa912599272458f9e578a7f5efb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  folderName: zombie
 --- !u!114 &11447622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,6 +249,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
+  skeletonGrowlRandomSounds: {fileID: 11447352}
+--- !u!114 &11483664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95496cf50f250054594272f9cccfb59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  isDead: 0
+  hitRandomSounds: {fileID: 11408350}
+  owner: {fileID: 193078}
+  spawner: {fileID: 0}
 --- !u!212 &21291392
 SpriteRenderer:
   m_ObjectHideFlags: 1

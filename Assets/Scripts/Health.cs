@@ -13,6 +13,7 @@ public class Health : MonoBehaviour {
     public GameObject owner;
     private AI ai;
     private GameObject attackArea;
+    public Spawner spawner;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class Health : MonoBehaviour {
         this.audioSource = GetComponent<AudioSource>();
         this.animator = GetComponent<Animator>();
         this.ai = GetComponent<AI>();
+        this.spawner = GameObject.FindGameObjectsWithTag("Spawner")[0].GetComponent<Spawner>();
 	}
 	
 	// Update is called once per frame
@@ -53,6 +55,7 @@ public class Health : MonoBehaviour {
             Destroy(ai);
             Destroy(this.transform.Find("AttackArea").gameObject);
             Destroy(this);
+            this.spawner.enemyNumber--;
         }
     }
 }

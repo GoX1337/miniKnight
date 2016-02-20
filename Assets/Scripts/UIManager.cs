@@ -113,7 +113,11 @@ public class UIManager : MonoBehaviour {
     private void ApplyVolumeChanges(){
         if (this.soundVolChanged)
         {
-            foreach (GameObject soundSourceObj in GameObject.FindGameObjectsWithTag("SoundSource"))
+            foreach (GameObject soundSourceObj in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                soundSourceObj.GetComponent<AudioSource>().volume = this.soundEffectsVolume;
+            }
+            foreach (GameObject soundSourceObj in GameObject.FindGameObjectsWithTag("Enemy"))
             {
                 soundSourceObj.GetComponent<AudioSource>().volume = this.soundEffectsVolume;
             }
