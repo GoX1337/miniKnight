@@ -13,7 +13,7 @@ public class Attack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.RightControl) && this.attackDelay >= 0.3){
+        if (Input.GetKey(KeyCode.LeftControl) && this.attackDelay >= 0.3){
             this.attackDelay = 0;
             this.playerAnimator.SetTrigger("attack");
         }
