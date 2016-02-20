@@ -55,7 +55,7 @@ public class Health : MonoBehaviour {
             Destroy(ai);
             Destroy(this.transform.Find("AttackArea").gameObject);
             Destroy(this);
-            this.spawner.enemyNumber--;
+            this.spawner.EnemyDead();
         }
     }
 }

@@ -5,7 +5,8 @@ public class Spawner : MonoBehaviour {
 
     public GameObject skeleton;
     public int enemyNumber;
-    private float deltaTime;
+    public float deltaTime;
+    public bool startTimerTrigger = false;
 
 	// Use this for initialization
 	void Start () {
@@ -15,10 +16,14 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.deltaTime += Time.deltaTime;
 
+        if(this.startTimerTrigger)
+        {
+             this.deltaTime += Time.deltaTime;
+        }
+        
         // Check enemy number every 5s
-        if (deltaTime >= 5)
+        if (deltaTime >= 3)
         {
             // Spawn an enemy
             if (enemyNumber == 0)
@@ -26,8 +31,15 @@ public class Spawner : MonoBehaviour {
                 Instantiate(skeleton);
                 Debug.Log(skeleton.name + " respawned at : " + skeleton.transform.position);
                 this.enemyNumber++;
+                this.startTimerTrigger = false;
+                deltaTime = 0;
             }
-            deltaTime = 0;
+            
         }
 	}
+
+    public void EnemyDead(){
+        this.startTimerTrigger = true;
+        this.enemyNumber = 0;
+    }
 }
