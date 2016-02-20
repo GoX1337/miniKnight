@@ -39,7 +39,10 @@ public class RandomSound : MonoBehaviour {
 
     public AudioClip GetRandomSound()
     {
-        return this.audioClipList[Random.Range(0, audioClipList.Count)];
+        if(audioClipList.Count != 0){
+            return this.audioClipList[Random.Range(0, audioClipList.Count)];
+        }
+        return null;
     }
 
     public float GetMaxLength()

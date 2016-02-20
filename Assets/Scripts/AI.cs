@@ -96,21 +96,15 @@ public class AI : MonoBehaviour
             speed = baseSpeed;
         }
 
-        if (speed < 0)
-        {
-            transform.localScale = new Vector2(scaleX, scaleY);
-            this.animator.Play("walk_skel");
-        }
-        else if (speed > 0)
-        {
-            transform.localScale = new Vector2(-scaleX, scaleY);
-            this.animator.Play("walk_skel");
-        }
-        if (speed == 0)
-        {
-            this.animator.Play("idle_skel");
-        }
+        this.animator.SetBool("moving", speed != 0);
         
+        if (speed != 0)
+        {
+            float sX = speed < 0 ? scaleX : -scaleX;
+            transform.localScale = new Vector2(sX, scaleY);
+            
+        }
+
         this.rigidBody.velocity = new Vector2(speed, this.rigidBody.velocity.y);
     }
 
@@ -126,10 +120,9 @@ public class AI : MonoBehaviour
 	{
         this.attackModeOn = true;
 
-		// If the player has health to lose...
         if (playerHealth.currentHealth > 0 && (this.lastAttackDelay == 0 || this.lastAttackDelay >= 0.5))
 		{
-			// ... damage the player.
+            this.animator.SetTrigger("attack");
 			playerHealth.TakeDamage (attackDamage);
             this.lastAttackDelay = 0;
 		}
@@ -140,7 +133,7 @@ public class AI : MonoBehaviour
     public void Stop()
     {
         this.speed = 0;
-        this.animator.Play("idle_skel");
+        this.animator.SetBool("moving", false);
     }
 
     public void RestartPatrol()

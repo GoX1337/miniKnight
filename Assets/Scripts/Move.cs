@@ -69,7 +69,7 @@ public class Move : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "void")
+        if (this.name == "Knight" && other.name == "void")
         {
             if (!this.audioSource.isPlaying)
             {
