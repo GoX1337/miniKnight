@@ -66,7 +66,11 @@ public class PlayerHealth : Health
 		{
 			// ... it should die.
 			Death ();
-		}
+        }
+        else
+        {
+            this.anim.SetTrigger("hurt");
+        }
 	}
 
     void Death()
