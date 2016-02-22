@@ -341,6 +341,7 @@ MonoBehaviour:
   isDead: 0
   hitRandomSounds: {fileID: 0}
   owner: {fileID: 0}
+  spawner: {fileID: 0}
   healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
   flashSpeed: 5
@@ -374,7 +375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe0fa912599272458f9e578a7f5efb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  folderName: die
+  audioClipList:
+  - {fileID: 8300000, guid: ee2170bb816e957469df78b9ea7769e1, type: 3}
+  - {fileID: 8300000, guid: 9f706f2a2ea494f45b472af9c0feae2c, type: 3}
+  - {fileID: 8300000, guid: 39b8cba395a45914889385d48b3ec143, type: 3}
 --- !u!114 &11450934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -403,7 +407,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe0fa912599272458f9e578a7f5efb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  folderName: pain
+  audioClipList:
+  - {fileID: 8300000, guid: 06a0cc0102e3203499c9fd8815b547b8, type: 3}
+  - {fileID: 8300000, guid: d303b5375a47cb84e89023186be50e72, type: 3}
+  - {fileID: 8300000, guid: cc4f636ca4d9c04468b5139f7fe6abac, type: 3}
+  - {fileID: 8300000, guid: 71237f795140f544bab15c3353125b45, type: 3}
+  - {fileID: 8300000, guid: 386d838031fa9e74283627f578f9eddf, type: 3}
+  - {fileID: 8300000, guid: 9a47e203656680c4f84947f013dabfd2, type: 3}
+  - {fileID: 8300000, guid: fa9e60f99b0891743a976ef4d88d7dc0, type: 3}
+  - {fileID: 8300000, guid: 51e4cd98ef5aa7044ba935e47f45322b, type: 3}
 --- !u!114 &11459604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -415,7 +427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe0fa912599272458f9e578a7f5efb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  folderName: hit/ground
+  audioClipList:
+  - {fileID: 8300000, guid: 56c6cd52ea7976c4a8d2e157aed06e1b, type: 3}
+  - {fileID: 8300000, guid: 62a649c2ef068a443b4be1e2f7ddf389, type: 3}
+  - {fileID: 8300000, guid: 5626c7cd8e46a6b4cae2625860c7a7b6, type: 3}
 --- !u!114 &11470178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,7 +442,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe0fa912599272458f9e578a7f5efb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  folderName: swosh
+  audioClipList:
+  - {fileID: 8300000, guid: 5a3e61fd6577dbb4c8d3c04259ebe916, type: 3}
+  - {fileID: 8300000, guid: 7c7faa6d744db184a84a04afe4f11eb7, type: 3}
+  - {fileID: 8300000, guid: 477abbd8a5f7e8b4dbb5255ab0ed7772, type: 3}
+  - {fileID: 8300000, guid: 3fef7a2ac2c554049b8a4c316397b583, type: 3}
+  - {fileID: 8300000, guid: cc2bc3f9083684d4396b46596153a13d, type: 3}
+  - {fileID: 8300000, guid: dbc15a0e9e0dd3247bf31562c61416ae, type: 3}
 --- !u!114 &11477518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,7 +460,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe0fa912599272458f9e578a7f5efb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  folderName: jump
+  audioClipList:
+  - {fileID: 8300000, guid: e29dba456a862f244a3b27ae785d1ef4, type: 3}
+  - {fileID: 8300000, guid: 2c930c156465bfc49ac294f97a8fdd66, type: 3}
+  - {fileID: 8300000, guid: 479073163d15bd24a9115e949caf6655, type: 3}
 --- !u!114 &11486014
 MonoBehaviour:
   m_ObjectHideFlags: 1
