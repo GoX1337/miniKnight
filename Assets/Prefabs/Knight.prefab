@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 480320}
   - 61: {fileID: 6191524}
-  - 114: {fileID: 11486862}
   - 114: {fileID: 11459604}
   - 82: {fileID: 8238528}
+  - 114: {fileID: 11408718}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -29,16 +29,16 @@ GameObject:
   - 4: {fileID: 436914}
   - 50: {fileID: 5097020}
   - 61: {fileID: 6109752}
-  - 114: {fileID: 11450934}
   - 82: {fileID: 8256288}
   - 95: {fileID: 9519962}
   - 212: {fileID: 21222430}
-  - 114: {fileID: 11420498}
   - 114: {fileID: 11477518}
   - 114: {fileID: 11454690}
   - 114: {fileID: 11440872}
-  - 114: {fileID: 11438608}
   - 114: {fileID: 11470178}
+  - 114: {fileID: 11421686}
+  - 114: {fileID: 11415020}
+  - 114: {fileID: 11469038}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -325,7 +325,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11420498
+--- !u!114 &11408718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a09af8c18442c409dd7f6593aa187c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11415020
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -333,37 +344,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 108246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43dfb1d744d01be4e94e78431db04978, type: 3}
+  m_Script: {fileID: 11500000, guid: df3a1b5229379424fae2296ecb65cc3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
-  currentHealth: 0
-  isDead: 0
-  hitRandomSounds: {fileID: 0}
-  owner: {fileID: 0}
-  spawner: {fileID: 0}
-  healthSlider: {fileID: 0}
-  damageImage: {fileID: 0}
-  flashSpeed: 5
-  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
-  painRandomSounds: {fileID: 11454690}
-  dieRandomSounds: {fileID: 11440872}
-  attack: {fileID: 0}
---- !u!114 &11438608
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f98abf647bc6c12468cdeb64b1f2bcc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  randomSwosh: {fileID: 11470178}
-  hp: {fileID: 0}
+  randomSwosh: {fileID: 11477518}
+  playerHealth: {fileID: 0}
   damagePerAttack: 20
   missed: 1
+--- !u!114 &11421686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd681713a51aaf4d8ec70feebc425dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelManager: {fileID: 0}
+  speed: 1
+  jumpSpeed: 20
+  grounded: 1
+  fall: {fileID: 8300000, guid: 63023f212ffe2a24081e72e41090e7b9, type: 3}
+  jumpRandomSounds: {fileID: 11477518}
 --- !u!114 &11440872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -379,23 +383,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ee2170bb816e957469df78b9ea7769e1, type: 3}
   - {fileID: 8300000, guid: 9f706f2a2ea494f45b472af9c0feae2c, type: 3}
   - {fileID: 8300000, guid: 39b8cba395a45914889385d48b3ec143, type: 3}
---- !u!114 &11450934
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1513a8122e686e04297ee1fac824a2a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
-  speed: 1
-  jumpSpeed: 20
-  grounded: 1
-  fall: {fileID: 8300000, guid: 63023f212ffe2a24081e72e41090e7b9, type: 3}
-  jumpRandomSounds: {fileID: 11477518}
 --- !u!114 &11454690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -431,6 +418,30 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 56c6cd52ea7976c4a8d2e157aed06e1b, type: 3}
   - {fileID: 8300000, guid: 62a649c2ef068a443b4be1e2f7ddf389, type: 3}
   - {fileID: 8300000, guid: 5626c7cd8e46a6b4cae2625860c7a7b6, type: 3}
+--- !u!114 &11469038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab414e0327b0af5438a67ff16a2ca628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  isDead: 0
+  hitRandomSounds: {fileID: 0}
+  owner: {fileID: 0}
+  spawner: {fileID: 0}
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  flashSpeed: 5
+  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  painRandomSounds: {fileID: 11477518}
+  dieRandomSounds: {fileID: 11477518}
+  attack: {fileID: 0}
 --- !u!114 &11470178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -475,17 +486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3248af9bc32fc45a6ca7e96720b674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11486862
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 107814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efbd289e59151a2468368386f89e97b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21222430
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -522,7 +522,35 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: jumpSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fall
+      value: 
+      objectReference: {fileID: 8300000, guid: 63023f212ffe2a24081e72e41090e7b9, type: 3}
+    - target: {fileID: 0}
+      propertyPath: jumpRandomSounds
+      value: 
+      objectReference: {fileID: 11477518}
+    - target: {fileID: 0}
+      propertyPath: missed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: randomSwosh
+      value: 
+      objectReference: {fileID: 11477518}
+    - target: {fileID: 0}
+      propertyPath: painRandomSounds
+      value: 
+      objectReference: {fileID: 11477518}
+    - target: {fileID: 0}
+      propertyPath: dieRandomSounds
+      value: 
+      objectReference: {fileID: 11477518}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108246}

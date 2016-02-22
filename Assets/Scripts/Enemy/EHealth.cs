@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Health : MonoBehaviour {
+public class EHealth : MonoBehaviour {
 
     public int startingHealth = 100;                           
     public int currentHealth;
@@ -11,17 +11,17 @@ public class Health : MonoBehaviour {
     private Animator animator;
     public RandomSound hitRandomSounds;
     public GameObject owner;
-    private AI ai;
+    private EnemyAI ai;
     private GameObject attackArea;
-    public Spawner spawner;
+    public EnemySpawner spawner;
 
 	// Use this for initialization
 	void Start () {
         this.currentHealth = startingHealth;
         this.audioSource = GetComponent<AudioSource>();
         this.animator = GetComponent<Animator>();
-        this.ai = GetComponent<AI>();
-        this.spawner = GameObject.FindGameObjectsWithTag("Spawner")[0].GetComponent<Spawner>();
+        this.ai = GetComponent<EnemyAI>();
+        this.spawner = GameObject.FindGameObjectsWithTag("Spawner")[0].GetComponent<EnemySpawner>();
 	}
 	
 	// Update is called once per frame

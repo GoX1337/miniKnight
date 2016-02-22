@@ -3,11 +3,11 @@ using System.Collections;
 
 public class GroundSensor : MonoBehaviour {
 
-    private Move move;
+    private PlayerMove move;
 
 	// Use this for initialization
 	void Start () {
-        move = GetComponentInParent<Move>();
+		move = GetComponentInParent<PlayerMove>();
 	}
 	
 	// Update is called once per frame

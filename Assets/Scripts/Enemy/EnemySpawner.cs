@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spawner : MonoBehaviour {
+public class EnemySpawner : MonoBehaviour {
 
     public GameObject skeleton;
     public int enemyNumber;

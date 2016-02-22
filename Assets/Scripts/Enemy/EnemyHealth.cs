@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerHealth : Health
+public class EnemyHealth : EHealth
 {
 	public Slider healthSlider;                                 // Reference to the UI's health bar.
 	public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
@@ -11,19 +11,19 @@ public class PlayerHealth : Health
 
 	Animator anim;                                              // Reference to the Animator component.
 	AudioSource playerAudio;                                    // Reference to the AudioSource component.
-	Move playerMovement;                              			// Reference to the player's movement.
+	EnemyMove playerMovement;                              			// Reference to the player's movement.
 
-    public RandomSound painRandomSounds;
-    public RandomSound dieRandomSounds;
-    public Attack attack;
+	public RandomSound painRandomSounds;
+	public RandomSound dieRandomSounds;
+	public EnemyAttack attack;
 
 	void Awake ()
 	{
 		// Setting up the references.
 		anim = GetComponent <Animator> ();
 		playerAudio = GetComponent <AudioSource> ();
-		playerMovement = GetComponent <Move> ();
-        attack = GetComponent<Attack>();
+		playerMovement = GetComponent <EnemyMove> ();
+		attack = GetComponent<EnemyAttack>();
 		// Set the initial health of the player.
 		currentHealth = startingHealth;
 	}
@@ -61,30 +61,30 @@ public class PlayerHealth : Health
 		healthSlider.value = currentHealth;
 
 		// Play the hurt sound effect.
-        this.playerAudio.PlayOneShot(this.painRandomSounds.GetRandomSound());
+		this.playerAudio.PlayOneShot(this.painRandomSounds.GetRandomSound());
 
 		// If the player has lost all it's health and the death flag hasn't been set yet...
 		if(currentHealth <= 0 && !isDead)
 		{
 			// ... it should die.
 			Death ();
-        }
-        else
-        {
-            this.anim.SetTrigger("hurt");
-        }
+		}
+		else
+		{
+			this.anim.SetTrigger("hurt");
+		}
 	}
 
-    void Death()
-    {
-        isDead = true;
-        this.playerAudio.PlayOneShot(this.dieRandomSounds.GetRandomSound());
-        this.anim.SetTrigger("dead");
-    }
+	void Death()
+	{
+		isDead = true;
+		this.playerAudio.PlayOneShot(this.dieRandomSounds.GetRandomSound());
+		this.anim.SetTrigger("dead");
+	}
 
-    public void SwitchEndGameScene()
-    {
-        Debug.Log("end...");
-        this.GetComponentInParent<Move>().levelManager.LoadLevel("End");
-    }
+	public void SwitchEndGameScene()
+	{
+		Debug.Log("end...");
+		this.GetComponentInParent<EnemyMove>().levelManager.LoadLevel("End");
+	}
 }

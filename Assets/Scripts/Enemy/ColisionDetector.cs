@@ -3,23 +3,23 @@ using System.Collections;
 
 public class ColisionDetector : MonoBehaviour {
 
-    private AI ai;
+	private EnemyAI enemyAI;
 
     void Start()
     {
-        ai = this.gameObject.GetComponentInParent<AI>();
+        enemyAI = this.gameObject.GetComponentInParent<EnemyAI>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "gounddirtcavern_0")
         {
-            this.gameObject.GetComponentInParent<AI>().ChangePatrolDirection();
+			this.gameObject.GetComponentInParent<EnemyAI>().ChangePatrolDirection();
         }
         else if (other.name == "Knight")
         {
-            ai.Stop();
-            ai.Attack();
+            enemyAI.Stop();
+            enemyAI.Attack();
         }
     }
 
@@ -27,12 +27,12 @@ public class ColisionDetector : MonoBehaviour {
     {
         if (other.name == "gounddirtcavern_0")
         {
-            this.gameObject.GetComponentInParent<AI>().ChangePatrolDirection();
+			this.gameObject.GetComponentInParent<EnemyAI>().ChangePatrolDirection();
         }
         else if (other.name == "Knight")
         {
-            ai.Stop();
-            ai.Attack();
+            enemyAI.Stop();
+            enemyAI.Attack();
         }
     }
 
@@ -40,11 +40,11 @@ public class ColisionDetector : MonoBehaviour {
     {
         if (other.name == "gounddirtcavern_0")
         {
-            this.gameObject.GetComponentInParent<AI>().ChangePatrolDirection();
+			this.gameObject.GetComponentInParent<EnemyAI>().ChangePatrolDirection();
         }
         else if (other.name == "Knight")
         {
-            ai.RestartPatrol();
+            enemyAI.RestartPatrol();
         }
     }
 }

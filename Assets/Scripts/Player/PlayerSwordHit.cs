@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SwordHit : MonoBehaviour {
+public class PlayerSwordHit : MonoBehaviour {
 
-    private Attack attack;
+	private PlayerAttack attack;
     private RandomSound wallHit;
     private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
-        this.attack = GetComponentInParent<Attack>();
+        this.attack = GetComponentInParent<PlayerAttack>();
         this.wallHit = GetComponent<RandomSound>();
         this.audioSource = GetComponentInParent<AudioSource>();
 	}
@@ -21,7 +21,7 @@ public class SwordHit : MonoBehaviour {
             this.attack.missed = false;
             this.audioSource.PlayOneShot(this.wallHit.GetRandomSound());
         }
-        else if (other.name.Contains("Skeleton"))
+        else if (other.name.Contains("Knight"))
         {
             this.attack.missed = false;
             this.attack.AttackGameObject(other.gameObject);

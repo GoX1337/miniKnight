@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
 	public LevelManager levelManager;
 
@@ -22,7 +22,7 @@ public class Move : MonoBehaviour
 
     private float jumpDelay;
 
-    private PlayerHealth hp;
+	private PlayerHealth playerHealth;
 
     // Use this for initialization
     void Start()
@@ -30,13 +30,13 @@ public class Move : MonoBehaviour
         playerAnimator = this.GetComponent<Animator>();
         rigidBody = this.GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
-        hp = GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hp.isDead)
+        if (playerHealth.isDead)
             return;
 
         this.rigidBody.WakeUp();

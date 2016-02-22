@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Attack : MonoBehaviour {
+public class EnemyAttack : MonoBehaviour {
 
     private Animator animator;
     private AudioSource audioSource;
     public RandomSound randomSwosh;
-    public PlayerHealth hp;
+    public EnemyHealth enemyHealth;
     private float attackDelay;
     public int damagePerAttack = 20;
     public bool missed = true;
@@ -15,12 +15,12 @@ public class Attack : MonoBehaviour {
 	void Start () {
         this.animator = this.GetComponent<Animator>();
         this.audioSource = GetComponent<AudioSource>();
-        this.hp = GetComponent<PlayerHealth>();
+		this.enemyHealth = GetComponent<EnemyHealth>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (this.hp.isDead)
+        if (this.enemyHealth.isDead)
             return;
 
         if (Input.GetKey(KeyCode.LeftControl) && this.attackDelay >= 0.3){
@@ -33,9 +33,9 @@ public class Attack : MonoBehaviour {
 
     public void AttackGameObject(GameObject gameObject)
     {
-        if (gameObject.GetComponent<Health>() != null)
+        if (gameObject.GetComponent<EHealth>() != null)
         {
-            gameObject.GetComponent<Health>().TakeDamage(damagePerAttack);
+            gameObject.GetComponent<EHealth>().TakeDamage(damagePerAttack);
         }
     }
 

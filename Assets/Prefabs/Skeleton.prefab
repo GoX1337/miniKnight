@@ -10,13 +10,13 @@ GameObject:
   - 4: {fileID: 445412}
   - 61: {fileID: 6137002}
   - 50: {fileID: 5001554}
-  - 114: {fileID: 11447622}
   - 82: {fileID: 8242360}
   - 95: {fileID: 9554344}
   - 212: {fileID: 21291392}
   - 114: {fileID: 11447352}
   - 114: {fileID: 11408350}
-  - 114: {fileID: 11483664}
+  - 114: {fileID: 11400718}
+  - 114: {fileID: 11402838}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -202,6 +202,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11400718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8562c3b7c5c4d18409a98a86ddf06a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  isDead: 0
+  hitRandomSounds: {fileID: 11447352}
+  owner: {fileID: 193078}
+  spawner: {fileID: 0}
 --- !u!114 &11400724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,6 +230,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bee54e93c632e45a973dc2d0c9be29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11402838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ac619cd35ad5f41a4957239ba7969d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 10
+  skeletonGrowlRandomSounds: {fileID: 11447352}
 --- !u!114 &11408350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -277,36 +307,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 88a8a5a88ddca3d48a2d2559853777db, type: 3}
   - {fileID: 8300000, guid: 1a9d26c082b5a67498fefe5ee66a1aa3, type: 3}
   - {fileID: 8300000, guid: c7de72aefb5e7f344bddb0e3e6819cc0, type: 3}
---- !u!114 &11447622
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d8a8c8c5b7cdc4bac667ad41865951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 10
-  skeletonGrowlRandomSounds: {fileID: 11447352}
---- !u!114 &11483664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95496cf50f250054594272f9cccfb59c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 100
-  currentHealth: 0
-  isDead: 0
-  hitRandomSounds: {fileID: 11408350}
-  owner: {fileID: 193078}
-  spawner: {fileID: 0}
 --- !u!212 &21291392
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -343,7 +343,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 193078}
+    - target: {fileID: 0}
+      propertyPath: hitRandomSounds
+      value: 
+      objectReference: {fileID: 11447352}
+    - target: {fileID: 0}
+      propertyPath: skeletonGrowlRandomSounds
+      value: 
+      objectReference: {fileID: 11447352}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193078}
