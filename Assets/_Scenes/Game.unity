@@ -275,6 +275,10 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 1507413319}
+    - target: {fileID: 11421686, guid: d2810b0b9fb278347a209d3c7c968683, type: 2}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1375278615}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -530,6 +534,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fa06755148fcb142a8eeb5800f597ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1375278615 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11470728, guid: 71bf4c668ec3834499333ac9b68f34ff,
+    type: 2}
+  m_PrefabInternal: {fileID: 2063920717}
+  m_Script: {fileID: 11500000, guid: f1f97a4b4d0ccef48a3309027e29aff3, type: 3}
 --- !u!1001 &1462127523
 Prefab:
   m_ObjectHideFlags: 0

@@ -85,6 +85,6 @@ public class PlayerHealth : PHealth
     public void SwitchEndGameScene()
     {
         Debug.Log("end...");
-        this.GetComponentInParent<EnemyMove>().levelManager.LoadLevel("End");
+		this.GetComponentInParent<PlayerMove>().levelManager.LoadLevel("End");
     }
 }
