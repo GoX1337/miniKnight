@@ -56,7 +56,7 @@ public class EnemyAI : MonoBehaviour
 
 		if (hitFall.collider != null)
 		{
-			if (hitFall.collider.gameObject.name == "void")
+			if (hitFall.collider.gameObject.name == "void" || hitFall.collider.gameObject.name == "Skeleton")
 			{
 				ChangePatrolDirection();
 			}
