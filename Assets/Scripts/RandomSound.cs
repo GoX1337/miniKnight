@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 public class RandomSound : MonoBehaviour {
 
-    public string folderName;
+    private string folderName;
     private AudioSource audioSource;
-    private List<AudioClip> audioClipList = new List<AudioClip>();
+    public List<AudioClip> audioClipList = new List<AudioClip>();
     private float maxLength;
 
 	// Use this for initialization
@@ -15,11 +15,15 @@ public class RandomSound : MonoBehaviour {
         this.audioSource = GetComponent<AudioSource>();
         if (this.audioSource == null)
             return;
+	}
 
+    //Not used because doesnt work after build/run
+    void LoadFromFS()
+    {
         DirectoryInfo dir = new DirectoryInfo("Assets/Resources/Sound/" + folderName);
         FileInfo[] info = dir.GetFiles("*.*");
 
-        foreach (FileInfo f in info) 
+        foreach (FileInfo f in info)
         {
             if (!f.Name.EndsWith(".meta"))
             {
@@ -35,7 +39,7 @@ public class RandomSound : MonoBehaviour {
             }
         }
         Debug.Log("RandomSound>" + this.folderName + ": " + audioClipList.Count + " sounds loaded");
-	}
+    }
 
     public AudioClip GetRandomSound()
     {
