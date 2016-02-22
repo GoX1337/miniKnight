@@ -58,7 +58,7 @@ public class AI : MonoBehaviour
 
         if (hitFall.collider != null)
         {
-            if (hitFall.collider.gameObject.name == "void" || hitFall.collider.gameObject.name == "Skeleton")
+            if (hitFall.collider.gameObject.name == "void")
             {
                 ChangePatrolDirection();
             }
